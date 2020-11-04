@@ -22,7 +22,6 @@ namespace SmartCop_Code_Sample_WinForm
             base.Dispose(disposing);
         }
 
-        private List<Drink> drinks = new List<Drink>();
 
         #region Windows Form Designer generated code
 
@@ -53,6 +52,7 @@ namespace SmartCop_Code_Sample_WinForm
             this.listDrinks.Size = new System.Drawing.Size(366, 220);
             this.listDrinks.TabIndex = 0;
             this.listDrinks.UseCompatibleStateImageBehavior = false;
+            this.listDrinks.View = System.Windows.Forms.View.List;
             // 
             // lblDrinks
             // 
@@ -149,6 +149,7 @@ namespace SmartCop_Code_Sample_WinForm
             this.btnAdd.TabIndex = 12;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // Form1
             // 

@@ -13,6 +13,7 @@ namespace SmartCop_Code_Sample_WinForm
     public partial class Form1 : Form
     {
         private RadioButton DrinkOption;
+        private List<Drink> drinks = new List<Drink>();
         public Form1()
         {
             InitializeComponent();
@@ -44,6 +45,43 @@ namespace SmartCop_Code_Sample_WinForm
 
                 }
                 
+            }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            switch (DrinkOption.Text)
+            {
+                case "Beer":
+                    int percent=-1;
+                    try
+                    {
+                        percent = int.Parse(txtOther.Text);
+                        
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show("Please enter only a number into the Alcohol Percent field.");
+                    }
+                    finally
+                    {
+                        drinks.Add(new Beer(txtName.Text, chkCarbonated.Checked, percent));
+                    }                    
+                    break;
+                case "Juice":
+                    drinks.Add(new Juice(txtName.Text, chkCarbonated.Checked, txtOther.Text));
+                    break;
+                case "Soda":
+                    drinks.Add(new Soda(txtName.Text, chkCarbonated.Checked));
+                    break;
+                default:
+                    drinks.Add(new Drink(txtName.Text, chkCarbonated.Checked));
+                    break;
+            }
+            listDrinks.Items.Clear();
+            foreach(Drink d in drinks)
+            {
+                listDrinks.Items.Add(d.Description);
             }
         }
     }
