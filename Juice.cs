@@ -13,7 +13,7 @@ namespace SmartCop_Code_Sample_WinForm
         {
             get
             {
-                return _name + (_carbonated ? ", carbonated" : ", not carbonated") + $", Made of {_fruit}.";
+                return _name + (_carbonated ? ", carbonated" : ", not carbonated") + $", Made from {_fruit}.";
             }
         }
         public Juice(string Name, bool Carb, string Fruit) : base(Name, Carb)

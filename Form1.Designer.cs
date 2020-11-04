@@ -31,6 +31,7 @@ namespace SmartCop_Code_Sample_WinForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.listDrinks = new System.Windows.Forms.ListView();
             this.lblDrinks = new System.Windows.Forms.Label();
             this.radioJuice = new System.Windows.Forms.RadioButton();
@@ -42,6 +43,8 @@ namespace SmartCop_Code_Sample_WinForm
             this.chkCarbonated = new System.Windows.Forms.CheckBox();
             this.lblExtra = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listDrinks
@@ -49,7 +52,7 @@ namespace SmartCop_Code_Sample_WinForm
             this.listDrinks.HideSelection = false;
             this.listDrinks.Location = new System.Drawing.Point(12, 28);
             this.listDrinks.Name = "listDrinks";
-            this.listDrinks.Size = new System.Drawing.Size(366, 220);
+            this.listDrinks.Size = new System.Drawing.Size(288, 157);
             this.listDrinks.TabIndex = 0;
             this.listDrinks.UseCompatibleStateImageBehavior = false;
             this.listDrinks.View = System.Windows.Forms.View.List;
@@ -66,7 +69,7 @@ namespace SmartCop_Code_Sample_WinForm
             // radioJuice
             // 
             this.radioJuice.AutoSize = true;
-            this.radioJuice.Location = new System.Drawing.Point(562, 28);
+            this.radioJuice.Location = new System.Drawing.Point(62, 19);
             this.radioJuice.Name = "radioJuice";
             this.radioJuice.Size = new System.Drawing.Size(50, 17);
             this.radioJuice.TabIndex = 2;
@@ -78,7 +81,7 @@ namespace SmartCop_Code_Sample_WinForm
             // radioSoda
             // 
             this.radioSoda.AutoSize = true;
-            this.radioSoda.Location = new System.Drawing.Point(654, 28);
+            this.radioSoda.Location = new System.Drawing.Point(118, 19);
             this.radioSoda.Name = "radioSoda";
             this.radioSoda.Size = new System.Drawing.Size(50, 17);
             this.radioSoda.TabIndex = 3;
@@ -90,7 +93,8 @@ namespace SmartCop_Code_Sample_WinForm
             // radioBeer
             // 
             this.radioBeer.AutoSize = true;
-            this.radioBeer.Location = new System.Drawing.Point(471, 28);
+            this.radioBeer.Checked = true;
+            this.radioBeer.Location = new System.Drawing.Point(9, 19);
             this.radioBeer.Name = "radioBeer";
             this.radioBeer.Size = new System.Drawing.Size(47, 17);
             this.radioBeer.TabIndex = 4;
@@ -101,7 +105,7 @@ namespace SmartCop_Code_Sample_WinForm
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(471, 68);
+            this.txtName.Location = new System.Drawing.Point(47, 36);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 20);
             this.txtName.TabIndex = 5;
@@ -109,7 +113,7 @@ namespace SmartCop_Code_Sample_WinForm
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(471, 52);
+            this.lblName.Location = new System.Drawing.Point(6, 39);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(35, 13);
             this.lblName.TabIndex = 6;
@@ -117,7 +121,7 @@ namespace SmartCop_Code_Sample_WinForm
             // 
             // txtOther
             // 
-            this.txtOther.Location = new System.Drawing.Point(471, 107);
+            this.txtOther.Location = new System.Drawing.Point(9, 98);
             this.txtOther.Name = "txtOther";
             this.txtOther.Size = new System.Drawing.Size(100, 20);
             this.txtOther.TabIndex = 8;
@@ -125,7 +129,7 @@ namespace SmartCop_Code_Sample_WinForm
             // chkCarbonated
             // 
             this.chkCarbonated.AutoSize = true;
-            this.chkCarbonated.Location = new System.Drawing.Point(577, 70);
+            this.chkCarbonated.Location = new System.Drawing.Point(9, 62);
             this.chkCarbonated.Name = "chkCarbonated";
             this.chkCarbonated.Size = new System.Drawing.Size(81, 17);
             this.chkCarbonated.TabIndex = 10;
@@ -135,15 +139,15 @@ namespace SmartCop_Code_Sample_WinForm
             // lblExtra
             // 
             this.lblExtra.AutoSize = true;
-            this.lblExtra.Location = new System.Drawing.Point(471, 91);
+            this.lblExtra.Location = new System.Drawing.Point(6, 82);
             this.lblExtra.Name = "lblExtra";
-            this.lblExtra.Size = new System.Drawing.Size(33, 13);
+            this.lblExtra.Size = new System.Drawing.Size(100, 13);
             this.lblExtra.TabIndex = 11;
-            this.lblExtra.Text = "Other";
+            this.lblExtra.Text = "Alcohol Percentage";
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(471, 159);
+            this.btnAdd.Location = new System.Drawing.Point(9, 124);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 12;
@@ -151,24 +155,37 @@ namespace SmartCop_Code_Sample_WinForm
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioBeer);
+            this.groupBox1.Controls.Add(this.btnAdd);
+            this.groupBox1.Controls.Add(this.radioJuice);
+            this.groupBox1.Controls.Add(this.txtOther);
+            this.groupBox1.Controls.Add(this.lblExtra);
+            this.groupBox1.Controls.Add(this.radioSoda);
+            this.groupBox1.Controls.Add(this.chkCarbonated);
+            this.groupBox1.Controls.Add(this.lblName);
+            this.groupBox1.Controls.Add(this.txtName);
+            this.groupBox1.Location = new System.Drawing.Point(374, 28);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 157);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "New Drink";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 258);
-            this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.lblExtra);
-            this.Controls.Add(this.chkCarbonated);
-            this.Controls.Add(this.txtOther);
-            this.Controls.Add(this.lblName);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.radioBeer);
-            this.Controls.Add(this.radioSoda);
-            this.Controls.Add(this.radioJuice);
+            this.ClientSize = new System.Drawing.Size(579, 195);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lblDrinks);
             this.Controls.Add(this.listDrinks);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Drinks! Drinks! Drinks!";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,6 +204,7 @@ namespace SmartCop_Code_Sample_WinForm
         private System.Windows.Forms.CheckBox chkCarbonated;
         private System.Windows.Forms.Label lblExtra;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

@@ -17,12 +17,14 @@ namespace SmartCop_Code_Sample_WinForm
         public Form1()
         {
             InitializeComponent();
-     
+            DrinkOption = radioBeer;
         }
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton opt = sender as RadioButton;
+            txtName.Text = "";
+            txtOther.Text = "";
             if (opt.Checked)
             {
                 DrinkOption = opt;
@@ -52,21 +54,16 @@ namespace SmartCop_Code_Sample_WinForm
         {
             switch (DrinkOption.Text)
             {
-                case "Beer":
-                    int percent=-1;
+                case "Beer":               
                     try
                     {
-                        percent = int.Parse(txtOther.Text);
-                        
+                        int percent = int.Parse(txtOther.Text);
+                        drinks.Add(new Beer(txtName.Text, chkCarbonated.Checked, percent));
                     }
                     catch (FormatException)
                     {
                         MessageBox.Show("Please enter only a number into the Alcohol Percent field.");
-                    }
-                    finally
-                    {
-                        drinks.Add(new Beer(txtName.Text, chkCarbonated.Checked, percent));
-                    }                    
+                    }                                 
                     break;
                 case "Juice":
                     drinks.Add(new Juice(txtName.Text, chkCarbonated.Checked, txtOther.Text));
